@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Renz Angelo M. Tabios | Video Editor & 2D Animator</title>
+  <meta name="description" content="Portfolio of Renz Angelo M. Tabios, video editor and 2D animator creating content for TikTok and YouTube.">
+  <style>
+    :root {
+      --bg: #080c11;
+      --bg-soft: #0f151d;
+      --card: #131b25;
+      --text: #e6f1f5;
+      --muted: #8da2ad;
+      --cyan: #22d3ee;
+      --cyan-dark: #0891b2;
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    section { padding: 70px 20px; max-width: 960px; margin: 0 auto; }
+    h2 { font-size: 1.8rem; margin-bottom: 8px; }
+    h2 span { color: var(--cyan); }
+    .sub { color: var(--muted); margin-bottom: 30px; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px 20px;
+      background: rgba(8, 12, 17, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #16212c;
+    }
+    .logo { font-weight: 800; color: var(--cyan); letter-spacing: 1px; }
+    nav ul { display: flex; gap: 18px; list-style: none; font-size: 0.9rem; }
+    nav ul a { color: var(--muted); transition: color .2s; }
+    nav ul a:hover { color: var(--cyan); }
+
+    /* HERO */
+    .hero {
+      min-height: 85vh;
+      display: flex; flex-direction: column; justify-content: center;
+      align-items: flex-start;
+    }
+    .hello { color: var(--cyan); font-weight: 600; margin-bottom: 8px; }
+    .hero h1 { font-size: clamp(2.2rem, 9vw, 3.8rem); line-height: 1.1; margin-bottom: 14px; }
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--cyan), #67e8f9);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero p { color: var(--muted); max-width: 520px; margin-bottom: 26px; }
+    .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      padding: 12px 24px; border-radius: 999px; font-weight: 600;
+      border: 2px solid var(--cyan); transition: all .2s;
+    }
+    .btn.primary { background: var(--cyan); color: #04202a; }
+    .btn.primary:hover { background: #67e8f9; border-color: #67e8f9; }
+    .btn.ghost { color: var(--cyan); }
+    .btn.ghost:hover { background: rgba(34, 211, 238, 0.12); }
+    .glow {
+      position: fixed; top: -150px; right: -150px; width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.18), transparent 70%);
+      pointer-events: none; z-index: -1;
+    }
+    .avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--cyan);
+  box-shadow: 0 0 25px rgba(34, 211, 238, 0.35);
+  margin-bottom: 20px;
+    }
+
+    /* ABOUT */
+    .about-box {
+      background: var(--bg-soft); border: 1px solid #16212c;
+      border-radius: var(--radius); padding: 24px;
+    }
+    .about-box p + p { margin-top: 12px; }
+    .about-box p { color: var(--muted); }
+    .about-box b { color: var(--text); }
+
+    /* PROJECTS */
+    .grid { display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .card {
+      background: var(--card); border: 1px solid #1a2634;
+      border-radius: var(--radius); overflow: hidden;
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+    }
+    .card:hover {
+      transform: translateY(-5px); border-color: var(--cyan);
+      box-shadow: 0 10px 30px rgba(34, 211, 238, 0.12);
+    }
+    .thumb {
+      height: 150px; display: flex; align-items: center; justify-content: center;
+      font-size: 2.6rem;
+      background: linear-gradient(135deg, #0e2a35, #0b1620);
+    }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .card-body { padding: 16px; }
+    .tag {
+      display: inline-block; font-size: 0.72rem; font-weight: 700;
+      color: var(--cyan); background: rgba(34, 211, 238, 0.1);
+      padding: 3px 10px; border-radius: 999px; margin-bottom: 8px;
+    }
+    .card h3 { font-size: 1.05rem; margin-bottom: 4px; }
+    .card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 10px; }
+    .card a.watch { color: var(--cyan); font-weight: 600; font-size: 0.9rem; }
+    .thumb video,
+.thumb iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: contain;
+  background: #000;
+  display: block;
+}
+.thumb.tall { height: 420px; }
+
+    /* SKILLS */
+    .skills { display: grid; gap: 16px; }
+    .skill-top { display: flex; justify-content: space-between; font-size: 0.95rem; margin-bottom: 6px; }
+    .bar { height: 10px; background: var(--bg-soft); border-radius: 999px; overflow: hidden; }
+    .fill {
+      height: 100%; width: 0; border-radius: 999px;
+      background: linear-gradient(90deg, var(--cyan-dark), var(--cyan));
+      transition: width 1.2s ease;
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .chip {
+      padding: 8px 16px; border-radius: 999px; font-size: 0.88rem;
+      background: var(--bg-soft); border: 1px solid #1d2b3a; color: var(--muted);
+    }
+
+    /* LINKS */
+    .links { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .link-card {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--card); border: 1px solid #1a2634;
+      border-radius: var(--radius); padding: 16px 18px;
+      transition: all .25s;
+    }
+    .link-card:hover { border-color: var(--cyan); transform: translateY(-3px); }
+    .link-card .ico { font-size: 1.7rem; }
+    .link-card strong { display: block; }
+    .link-card small { color: var(--muted); }
+
+    footer {
+      text-align: center; padding: 30px 20px; color: var(--muted);
+      border-top: 1px solid #16212c; font-size: 0.85rem;
+    }
+    footer span { color: var(--cyan); }
+
+    /* reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(24px); transition: all .7s ease; }
+    .reveal.show { opacity: 1; transform: none; }
+
+    @media (max-width: 520px) {
+      nav ul { gap: 12px; font-size: 0.8rem; }
+      section { padding: 55px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+
+  <nav>
+    <a href="#home" class="logo">Koro Artz</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#links">Links</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <img class="avatar" src="profile.png" alt="Renz Angelo M. Tabios">
+    <p class="hello">Hey there! I'm</p>
+    <h1>Renz Angelo <span>M. Tabios</span></h1>
+    <p>Your friendly neighborhood Video editor, 2D animator, and Song writer turning ideas and imagination into scroll-stopping content for TikTok and YouTube.</p>
+    <div class="btns">
+      <a href="#projects" class="btn primary">See my work</a>
+      <a href="#links" class="btn ghost">Find me online</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="reveal">
+    <h2>About <span>Me</span></h2>
+    <p class="sub">A little about what I do</p>
+    <div class="about-box">
+      <p>I'm <b>Renz</b> also known as <b>Koro Artz</b>, a content creator who loves <b>video editing</b>, <b>2D animation</b>, and <b>Song Writing</b>. I make videos for <b>TikTok</b> and <b>YouTube</b>, mixing smooth cuts, fun motion, and storytelling.</p>
+      <p>I enjoy bringing ideas and imagination to life frame by frame, and I'm always learning new techniques to make my content better.</p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="reveal">
+    <h2>My <span>Projects</span></h2>
+    <p class="sub">A few things I've made. Take a look!</p>
+    <div class="grid">
+
+      <div class="card">
+        <div class="thumb tall">
+  <video src="project1.mp4" poster="project1-thumb.jpg" controls playsinline preload="none"></video>
+</div>
+        <div class="card-body">
+          <span class="tag">Video Editing</span>
+          <h3>Video Editing Sample clip</h3>
+          <p>I really love editing visual effects like on superhero movies. In this clip I use CapCut app for editing.</p>
+          <a class="watch" href="#" target="_blank">Watch video →</a>
+        </div>
+      </div>
+
+        <div class="card">
+  <div class="thumb tall">
+  <video src="Project2.mp4" poster="project2-thumb.jpg" controls playsinline preload="none"></video>
+</div>
+  <div class="card-body">
+          <span class="tag">2D Animation</span>
+          <h3>Animation Sample</h3>
+          <p>This is one of my animations, I used FlipaClip app to animate and then edit it on CapCut app.</p>
+          <a class="watch" href="#" target="_blank">Watch video →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="thumb tall">
+  <video src="project3.mp4" poster="project3-thumb.jpg" controls playsinline preload="none"></video>
+</div>
+        <div class="card-body">
+          <span class="tag">Song Writing</span>
+          <h3>Song Writen Sample</h3>
+          <p>From feelings and passion to a music that is full of emotions and stories behind it.</p>
+          <a class="watch" href="#" target="_blank">Watch video →</a>
+        </div>
+      </div>
+
+
+    
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="reveal">
+    <h2>My <span>Skills</span></h2>
+    <p class="sub">Adjust the percentages to match your level</p>
+    <div class="skills">
+      <div>
+        <div class="skill-top"><span>Video Editing</span><span>90%</span></div>
+        <div class="bar"><div class="fill" data-w="90"></div></div>
+      </div>
+      <div>
+        <div class="skill-top"><span>2D Animation</span><span>80%</span></div>
+        <div class="bar"><div class="fill" data-w="80"></div></div>
+      </div>
+      <div>
+        <div class="skill-top"><span>Motion & Effects</span><span>75%</span></div>
+        <div class="bar"><div class="fill" data-w="75"></div></div>
+      </div>
+      <div>
+        <div class="skill-top"><span>Storytelling</span><span>85%</span></div>
+        <div class="bar"><div class="fill" data-w="85"></div></div>
+      </div>
+      <div>
+  <div class="skill-top"><span>Songwriting</span><span>80%</span></div>
+  <div class="bar"><div class="fill" data-w="80"></div></div>
+      </div>
+    </div>
+    <div class="chips">
+      <span class="chip">Color Grading</span>
+      <span class="chip">Sound Design</span>
+      <span class="chip">Captions & Subtitles</span>
+      <span class="chip">Thumbnails</span>
+      <span class="chip">Short-form Content</span>
+      <span class="chip">Long-form Content</span>
+      <span class="chip">Songwriting</span>
+<span class="chip">Lyrics</span>
+<span class="chip">Original Songs</span>
+    </div>
+  </section>
+
+  <!-- LINKS -->
+  <section id="links" class="reveal">
+    <h2>Find <span>Me</span></h2>
+    <p class="sub">Come say hi and watch my content</p>
+    <div class="links">
+      <a class="link-card" href="https://www.tiktok.com/@korosaiken?lang=en-GB&is_from_webapp=1&sender_device=mobile&sender_web_id=7675378900432012801" target="_blank" rel="noopener">
+        <span class="ico">🎵</span>
+        <div><strong>TikTok</strong><small>@korosaiken</small></div>
+      </a>
+      <a class="link-card" href="https://www.youtube.com/@koroanimation22" target="_blank" rel="noopener">
+        <span class="ico">▶️</span>
+        <div><strong>YouTube</strong><small>Koro Artz</small></div>
+      </a>
+      <a class="link-card" href="renzangelotabios22@gmail.com">
+        <span class="ico">✉️</span>
+        <div><strong>Email</strong><small>renzangelotabios22@gmail.com</small></div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Renz Angelo M. Tabios. Made with <span>♥</span> and my unstoppable Imagination.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("show");
+          e.target.querySelectorAll(".fill").forEach((f) => {
+            f.style.width = f.dataset.w + "%";
+          });
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
