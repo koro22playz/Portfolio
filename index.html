@@ -3,333 +3,907 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Renz Angelo M. Tabios | Video Editor & 2D Animator</title>
-  <meta name="description" content="Portfolio of Renz Angelo M. Tabios, video editor and 2D animator creating content for TikTok and YouTube.">
+  <title>Renz Angelo M. Tabios (Koro Artz) | Video Editor, 2D Animator & Digital Artist</title>
+  <meta name="description" content="Portfolio of Renz Angelo M. Tabios (Koro Artz): video editor, 2D animator, digital and traditional artist, songwriter, and BSIT student open to freelance, commission, and virtual assistant work.">
+  <meta name="theme-color" content="#080c11">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080c11'/%3E%3Ctext x='32' y='43' font-size='30' font-family='Arial' font-weight='700' text-anchor='middle' fill='%2322d3ee'%3EKA%3C/text%3E%3C/svg%3E">
+
+  <!-- Fonts: Poppins and Inter from Google Fonts (open-source, SIL OFL) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <script>document.documentElement.classList.add("js");</script>
+
   <style>
+    /* ============ DESIGN TOKENS ============ */
     :root {
       --bg: #080c11;
       --bg-soft: #0f151d;
       --card: #131b25;
+      --line: #223243;
       --text: #e6f1f5;
-      --muted: #8da2ad;
+      --muted: #a3b6c1;
       --cyan: #22d3ee;
+      --cyan-soft: #67e8f9;
       --cyan-dark: #0891b2;
       --radius: 16px;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      --font-head: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     }
+
+    /* ============ BASE ============ */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-family: var(--font-body);
+      font-size: 1rem;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
+      overflow-x: hidden;
     }
+    img, video { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
-    section { padding: 70px 20px; max-width: 960px; margin: 0 auto; }
-    h2 { font-size: 1.8rem; margin-bottom: 8px; }
-    h2 span { color: var(--cyan); }
-    .sub { color: var(--muted); margin-bottom: 30px; }
+    ul { list-style: none; }
+    h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.2; }
+    section { padding: 72px 20px; max-width: 1040px; margin: 0 auto; scroll-margin-top: 64px; }
+    h2 { font-size: clamp(1.6rem, 5vw, 2.1rem); margin-bottom: 8px; }
+    h2 span, .accent { color: var(--cyan); }
+    .sub { color: var(--muted); margin-bottom: 32px; max-width: 640px; }
+    .ico { width: 1.25em; height: 1.25em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
 
-    /* NAV */
-    nav {
-      position: sticky; top: 0; z-index: 10;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 14px 20px;
-      background: rgba(8, 12, 17, 0.85);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #16212c;
+    :focus-visible { outline: 3px solid var(--cyan-soft); outline-offset: 3px; border-radius: 6px; }
+    .skip {
+      position: absolute; left: 12px; top: -60px; z-index: 100;
+      background: var(--cyan); color: #04202a; padding: 10px 16px; border-radius: 8px; font-weight: 600;
     }
-    .logo { font-weight: 800; color: var(--cyan); letter-spacing: 1px; }
-    nav ul { display: flex; gap: 18px; list-style: none; font-size: 0.9rem; }
-    nav ul a { color: var(--muted); transition: color .2s; }
-    nav ul a:hover { color: var(--cyan); }
+    .skip:focus { top: 12px; }
 
-    /* HERO */
-    .hero {
-      min-height: 85vh;
-      display: flex; flex-direction: column; justify-content: center;
-      align-items: flex-start;
-    }
-    .hello { color: var(--cyan); font-weight: 600; margin-bottom: 8px; }
-    .hero h1 { font-size: clamp(2.2rem, 9vw, 3.8rem); line-height: 1.1; margin-bottom: 14px; }
-    .hero h1 span {
-      background: linear-gradient(90deg, var(--cyan), #67e8f9);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-    }
-    .hero p { color: var(--muted); max-width: 520px; margin-bottom: 26px; }
-    .btns { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn {
-      padding: 12px 24px; border-radius: 999px; font-weight: 600;
-      border: 2px solid var(--cyan); transition: all .2s;
-    }
-    .btn.primary { background: var(--cyan); color: #04202a; }
-    .btn.primary:hover { background: #67e8f9; border-color: #67e8f9; }
-    .btn.ghost { color: var(--cyan); }
-    .btn.ghost:hover { background: rgba(34, 211, 238, 0.12); }
     .glow {
       position: fixed; top: -150px; right: -150px; width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(34, 211, 238, 0.18), transparent 70%);
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.16), transparent 70%);
       pointer-events: none; z-index: -1;
     }
-    .avatar {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--cyan);
-  box-shadow: 0 0 25px rgba(34, 211, 238, 0.35);
-  margin-bottom: 20px;
+
+    /* ============ NAVIGATION ============ */
+    .site-nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(8, 12, 17, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 12px 20px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .logo { font-family: var(--font-head); font-weight: 800; font-size: 1.15rem; color: var(--cyan); letter-spacing: .5px; }
+    .nav-links { display: flex; gap: 20px; font-size: .9rem; font-weight: 500; }
+    .nav-links a { color: var(--muted); padding: 6px 2px; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a[aria-current="true"] { color: var(--cyan); border-bottom-color: var(--cyan); }
+    .menu-btn {
+      display: none; background: none; border: 1px solid var(--line); border-radius: 10px;
+      color: var(--text); width: 44px; height: 44px; cursor: pointer; align-items: center; justify-content: center;
+    }
+    .menu-btn:hover { border-color: var(--cyan); color: var(--cyan); }
+
+    @media (max-width: 920px) {
+      .menu-btn { display: inline-flex; }
+      .nav-links {
+        position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; gap: 0; padding: 8px 20px 16px;
+        background: #0b1118; border-bottom: 1px solid var(--line);
+        display: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 14px 4px; font-size: 1rem; border-bottom: 1px solid var(--line); }
     }
 
-    /* ABOUT */
-    .about-box {
-      background: var(--bg-soft); border: 1px solid #16212c;
+    /* ============ BUTTONS ============ */
+    .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: 999px; font-weight: 600; font-size: .95rem;
+      border: 2px solid var(--cyan); cursor: pointer; font-family: inherit;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .btn.primary { background: var(--cyan); color: #04202a; }
+    .btn.primary:hover { background: var(--cyan-soft); border-color: var(--cyan-soft); }
+    .btn.ghost { color: var(--cyan); background: transparent; }
+    .btn.ghost:hover { background: rgba(34, 211, 238, 0.12); }
+
+    /* ============ HOME ============ */
+    .hero {
+      min-height: calc(100vh - 64px);
+      display: grid; align-items: center; gap: 32px;
+      grid-template-columns: 1fr;
+    }
+    .avatar {
+      width: 150px; height: 150px; border-radius: 50%; object-fit: cover;
+      border: 3px solid var(--cyan); box-shadow: 0 0 28px rgba(34, 211, 238, 0.35);
+    }
+    .hello { color: var(--cyan); font-weight: 600; margin-bottom: 6px; }
+    .hero h1 { font-size: clamp(2.2rem, 8vw, 3.6rem); margin-bottom: 10px; }
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--cyan), var(--cyan-soft));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .role { font-family: var(--font-head); font-weight: 600; font-size: clamp(1rem, 3.2vw, 1.25rem); margin-bottom: 16px; }
+    .hero p.intro { color: var(--muted); max-width: 560px; margin-bottom: 14px; }
+    .interests { color: var(--muted); max-width: 560px; margin-bottom: 26px; font-size: .95rem; }
+    .interests strong { color: var(--text); }
+    @media (min-width: 800px) {
+      .hero { grid-template-columns: 1fr auto; gap: 56px; }
+      .hero .photo { order: 2; }
+      .avatar { width: 260px; height: 260px; }
+    }
+
+    /* ============ ABOUT ============ */
+    .about-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+    .panel {
+      background: var(--bg-soft); border: 1px solid var(--line);
       border-radius: var(--radius); padding: 24px;
     }
-    .about-box p + p { margin-top: 12px; }
-    .about-box p { color: var(--muted); }
-    .about-box b { color: var(--text); }
+    .panel h3 { font-size: 1.05rem; margin-bottom: 12px; }
+    .panel p { color: var(--muted); }
+    .panel p + p { margin-top: 12px; }
+    .panel b { color: var(--text); }
+    .facts li { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: .95rem; }
+    .facts li:last-child { border-bottom: 0; }
+    .facts strong { color: var(--text); min-width: 88px; font-weight: 600; }
+    @media (min-width: 800px) { .about-grid { grid-template-columns: 1.4fr 1fr; } }
 
-    /* PROJECTS */
-    .grid { display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-    .card {
-      background: var(--card); border: 1px solid #1a2634;
-      border-radius: var(--radius); overflow: hidden;
-      transition: transform .25s, border-color .25s, box-shadow .25s;
-    }
-    .card:hover {
-      transform: translateY(-5px); border-color: var(--cyan);
-      box-shadow: 0 10px 30px rgba(34, 211, 238, 0.12);
-    }
-    .thumb {
-      height: 150px; display: flex; align-items: center; justify-content: center;
-      font-size: 2.6rem;
-      background: linear-gradient(135deg, #0e2a35, #0b1620);
-    }
-    .thumb img { width: 100%; height: 100%; object-fit: cover; }
-    .card-body { padding: 16px; }
-    .tag {
-      display: inline-block; font-size: 0.72rem; font-weight: 700;
-      color: var(--cyan); background: rgba(34, 211, 238, 0.1);
-      padding: 3px 10px; border-radius: 999px; margin-bottom: 8px;
-    }
-    .card h3 { font-size: 1.05rem; margin-bottom: 4px; }
-    .card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 10px; }
-    .card a.watch { color: var(--cyan); font-weight: 600; font-size: 0.9rem; }
-    .thumb video,
-.thumb iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  object-fit: contain;
-  background: #000;
-  display: block;
-}
-.thumb.tall { height: 420px; }
-
-    /* SKILLS */
-    .skills { display: grid; gap: 16px; }
-    .skill-top { display: flex; justify-content: space-between; font-size: 0.95rem; margin-bottom: 6px; }
-    .bar { height: 10px; background: var(--bg-soft); border-radius: 999px; overflow: hidden; }
+    /* ============ SKILLS ============ */
+    .skill-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+    @media (min-width: 700px) { .skill-grid { grid-template-columns: 1fr 1fr; } .skill-grid .wide { grid-column: 1 / -1; } }
+    .skill-top { display: flex; justify-content: space-between; font-size: .95rem; margin-bottom: 6px; }
+    .skills-bars { display: grid; gap: 16px; }
+    .bar { height: 10px; background: #0b1118; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
     .fill {
       height: 100%; width: 0; border-radius: 999px;
       background: linear-gradient(90deg, var(--cyan-dark), var(--cyan));
       transition: width 1.2s ease;
     }
-    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .note { color: var(--muted); font-size: .85rem; margin-top: 14px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
     .chip {
-      padding: 8px 16px; border-radius: 999px; font-size: 0.88rem;
-      background: var(--bg-soft); border: 1px solid #1d2b3a; color: var(--muted);
+      padding: 6px 14px; border-radius: 999px; font-size: .88rem;
+      background: #0b1118; border: 1px solid var(--line); color: var(--text);
     }
 
-    /* LINKS */
-    .links { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    /* ============ TIMELINE (Education / Experience) ============ */
+    .timeline { display: grid; gap: 20px; }
+    .t-item {
+      background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--cyan);
+      border-radius: var(--radius); padding: 22px;
+    }
+    .t-head { display: flex; justify-content: space-between; gap: 6px 16px; flex-wrap: wrap; align-items: baseline; margin-bottom: 4px; }
+    .t-head h3 { font-size: 1.1rem; }
+    .period {
+      font-size: .8rem; font-weight: 600; color: var(--cyan);
+      background: rgba(34, 211, 238, 0.1); padding: 3px 12px; border-radius: 999px; white-space: nowrap;
+    }
+    .org { color: var(--cyan-soft); font-weight: 500; margin-bottom: 10px; font-size: .95rem; }
+    .t-item p { color: var(--muted); font-size: .95rem; }
+    .t-item ul { margin-top: 10px; padding-left: 18px; list-style: disc; color: var(--muted); font-size: .95rem; }
+    .t-item li + li { margin-top: 4px; }
+    .t-item li::marker { color: var(--cyan); }
+
+    /* ============ PROJECTS ============ */
+    .projects { display: grid; gap: 40px; }
+    .project {
+      display: grid; gap: 24px; grid-template-columns: 1fr;
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow);
+    }
+    @media (min-width: 820px) { .project { grid-template-columns: 340px 1fr; gap: 32px; padding: 24px; } }
+    .tag {
+      display: inline-block; font-size: .75rem; font-weight: 700;
+      color: var(--cyan); background: rgba(34, 211, 238, 0.1);
+      padding: 3px 12px; border-radius: 999px; margin-bottom: 10px;
+    }
+    .project h3 { font-size: 1.35rem; margin-bottom: 8px; }
+    .project .desc { color: var(--muted); margin-bottom: 16px; }
+    .details { display: grid; gap: 10px; margin-bottom: 20px; }
+    .details div { display: grid; grid-template-columns: 96px 1fr; gap: 12px; font-size: .93rem; }
+    .details dt { font-weight: 600; color: var(--cyan-soft); }
+    .details dd { color: var(--muted); }
+
+    /* carousel */
+    .carousel { position: relative; width: 100%; max-width: 420px; margin: 0 auto; }
+    .track {
+      display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+      border-radius: 12px; background: #000; border: 1px solid var(--line);
+      scrollbar-width: none; aspect-ratio: 4 / 5;
+    }
+    .track::-webkit-scrollbar { display: none; }
+    .slide { flex: 0 0 100%; scroll-snap-align: center; display: flex; align-items: center; justify-content: center; }
+    .slide video, .slide img { width: 100%; height: 100%; object-fit: contain; background: #000; }
+    .slide.empty { color: var(--muted); font-size: .9rem; text-align: center; padding: 20px; }
+    .car-nav {
+      position: absolute; top: calc(50% - 24px); z-index: 2;
+      width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--cyan);
+      background: rgba(8, 12, 17, 0.85); color: var(--cyan); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .car-nav:hover { background: var(--cyan); color: #04202a; }
+    .car-nav.prev { left: 8px; }
+    .car-nav.next { right: 8px; }
+    .car-foot { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 12px; }
+    .dots { display: flex; gap: 8px; }
+    .dot {
+      width: 10px; height: 10px; border-radius: 50%; border: 1px solid var(--cyan);
+      background: transparent; cursor: pointer; padding: 0;
+    }
+    .dot[aria-current="true"] { background: var(--cyan); }
+    .counter { color: var(--muted); font-size: .85rem; }
+    .carousel.single .car-nav, .carousel.single .car-foot { display: none; }
+
+    /* ============ ACHIEVEMENTS ============ */
+    .cards { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .info-card {
+      background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px;
+      transition: border-color .25s, transform .25s;
+    }
+    .info-card:hover { border-color: var(--cyan); transform: translateY(-3px); }
+    .info-card h3 { font-size: 1.05rem; margin: 10px 0 6px; }
+    .info-card p { color: var(--muted); font-size: .93rem; }
+
+    /* ============ RESUME ============ */
+    .resume-box {
+      display: grid; gap: 20px; align-items: center; grid-template-columns: 1fr;
+      background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px;
+    }
+    .resume-box p { color: var(--muted); max-width: 520px; }
+    .resume-box h3 { margin-bottom: 8px; font-size: 1.2rem; }
+    @media (min-width: 800px) { .resume-box { grid-template-columns: 1fr auto; } }
+
+    /* ============ CONTACT ============ */
+    .contact-grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
+    @media (min-width: 800px) { .contact-grid { grid-template-columns: 1fr 1.1fr; } }
+    .links { display: grid; gap: 14px; align-content: start; }
     .link-card {
       display: flex; align-items: center; gap: 14px;
-      background: var(--card); border: 1px solid #1a2634;
-      border-radius: var(--radius); padding: 16px 18px;
-      transition: all .25s;
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 14px 18px; transition: border-color .25s, transform .25s;
     }
     .link-card:hover { border-color: var(--cyan); transform: translateY(-3px); }
-    .link-card .ico { font-size: 1.7rem; }
-    .link-card strong { display: block; }
-    .link-card small { color: var(--muted); }
-
-    footer {
-      text-align: center; padding: 30px 20px; color: var(--muted);
-      border-top: 1px solid #16212c; font-size: 0.85rem;
+    .badge {
+      width: 44px; height: 44px; border-radius: 12px; flex: none;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(34, 211, 238, 0.12); color: var(--cyan);
+      font-family: var(--font-head); font-weight: 700; font-size: 1.05rem;
     }
-    footer span { color: var(--cyan); }
+    .link-card strong { display: block; font-size: .98rem; }
+    .link-card small { color: var(--muted); font-size: .85rem; word-break: break-all; }
+    a[href*="PASTE_"] { display: none; }   /* hides a social link until a real URL is added */
 
-    /* reveal on scroll */
-    .reveal { opacity: 0; transform: translateY(24px); transition: all .7s ease; }
-    .reveal.show { opacity: 1; transform: none; }
+    form.form { background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: grid; gap: 16px; }
+    .field { display: grid; gap: 6px; }
+    label { font-weight: 600; font-size: .9rem; }
+    input, textarea {
+      font: inherit; color: var(--text); background: #0b1118;
+      border: 1px solid #35506a; border-radius: 10px; padding: 12px 14px; width: 100%;
+    }
+    textarea { min-height: 130px; resize: vertical; }
+    input:focus, textarea:focus { outline: 3px solid var(--cyan-soft); outline-offset: 1px; border-color: var(--cyan); }
+    .form-msg { font-size: .9rem; color: var(--cyan-soft); min-height: 1.4em; }
+
+    /* ============ FOOTER ============ */
+    footer { border-top: 1px solid var(--line); padding: 36px 20px; color: var(--muted); font-size: .9rem; }
+    .foot-inner { max-width: 1040px; margin: 0 auto; display: grid; gap: 18px; text-align: center; justify-items: center; }
+    .foot-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; }
+    .foot-links a:hover { color: var(--cyan); }
+    footer .accent { color: var(--cyan); }
+    footer small { display: block; font-size: .8rem; }
+
+    /* ============ SCROLL REVEAL ============ */
+    .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .js .reveal.show { opacity: 1; transform: none; }
 
     @media (max-width: 520px) {
-      nav ul { gap: 12px; font-size: 0.8rem; }
-      section { padding: 55px 18px; }
+      section { padding: 56px 18px; }
+      .details div { grid-template-columns: 1fr; gap: 2px; }
+      .panel, .t-item, .resume-box, form.form { padding: 18px; }
+      .btn { padding: 12px 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+      .js .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
-  <div class="glow"></div>
+  <a class="skip" href="#main">Skip to main content</a>
+  <div class="glow" aria-hidden="true"></div>
 
-  <nav>
-    <a href="#home" class="logo">Koro Artz</a>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#links">Links</a></li>
-    </ul>
-  </nav>
+  <!-- Icon set (all icons share the same outline style) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="16" r="2"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11"/><path d="m7 11 5 5 5-5"/><path d="M5 20h14"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 8-5 4 5 4"/><path d="m16 8 5 4-5 4"/><path d="m14 5-4 14"/></symbol>
+  </svg>
 
-  <!-- HERO -->
-  <section id="home" class="hero">
-    <img class="avatar" src="profile.png" alt="Renz Angelo M. Tabios">
-    <p class="hello">Hey there! I'm</p>
-    <h1>Renz Angelo <span>M. Tabios</span></h1>
-    <p>Your friendly neighborhood Video editor, 2D animator, and Song writer turning ideas and imagination into scroll-stopping content for TikTok and YouTube.</p>
-    <div class="btns">
-      <a href="#projects" class="btn primary">See my work</a>
-      <a href="#links" class="btn ghost">Find me online</a>
-    </div>
-  </section>
+  <!-- ============ NAVIGATION ============ -->
+  <header class="site-nav">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="#home" class="logo">Koro Artz</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg class="ico" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- ABOUT -->
-  <section id="about" class="reveal">
-    <h2>About <span>Me</span></h2>
-    <p class="sub">A little about what I do</p>
-    <div class="about-box">
-      <p>I'm <b>Renz</b> also known as <b>Koro Artz</b>, a content creator who loves <b>video editing</b>, <b>2D animation</b>, and <b>Song Writing</b>. I make videos for <b>TikTok</b> and <b>YouTube</b>, mixing smooth cuts, fun motion, and storytelling.</p>
-      <p>I enjoy bringing ideas and imagination to life frame by frame, and I'm always learning new techniques to make my content better.</p>
-    </div>
-  </section>
+  <main id="main">
 
-  <!-- PROJECTS -->
-  <section id="projects" class="reveal">
-    <h2>My <span>Projects</span></h2>
-    <p class="sub">A few things I've made. Take a look!</p>
-    <div class="grid">
-
-      <div class="card">
-        <div class="thumb tall">
-  <video src="project1.mp4" poster="project1-thumb.jpg" controls playsinline preload="none"></video>
-</div>
-        <div class="card-body">
-          <span class="tag">Video Editing</span>
-          <h3>Video Editing Sample clip</h3>
-          <p>I really love editing visual effects like on superhero movies. In this clip I use CapCut app for editing.</p>
-          <a class="watch" href="#" target="_blank">Watch video →</a>
+    <!-- ============ HOME ============ -->
+    <section id="home" class="hero">
+      <div class="photo">
+        <img class="avatar" src="profile.png" width="260" height="260" alt="Portrait of Renz Angelo M. Tabios">
+      </div>
+      <div>
+        <p class="hello">Hey there! I'm</p>
+        <h1>Renz Angelo <span>M. Tabios</span></h1>
+        <p class="role">Video Editor · 2D Animator · Digital Artist · Songwriter</p>
+        <p class="intro">I'm a BSIT student and content creator, known online as <b>Koro Artz</b>. I turn ideas and imagination into scroll-stopping videos, animations, artworks, and songs for TikTok and YouTube.</p>
+        <p class="interests"><strong>Professional interests:</strong> freelance video editing and animation, art commissions, and virtual assistant work.</p>
+        <div class="btns">
+          <a href="#projects" class="btn primary"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg>View My Projects</a>
+          <a href="resume.pdf" class="btn ghost" download><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>Download My Resume</a>
+          <a href="#contact" class="btn ghost"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>Contact Me</a>
         </div>
       </div>
+    </section>
 
-        <div class="card">
-  <div class="thumb tall">
-  <video src="Project2.mp4" poster="project2-thumb.jpg" controls playsinline preload="none"></video>
-</div>
-  <div class="card-body">
-          <span class="tag">2D Animation</span>
-          <h3>Animation Sample</h3>
-          <p>This is one of my animations, I used FlipaClip app to animate and then edit it on CapCut app.</p>
-          <a class="watch" href="#" target="_blank">Watch video →</a>
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="reveal">
+      <h2>About <span>Me</span></h2>
+      <p class="sub">A little about who I am and where I'm headed.</p>
+      <div class="about-grid">
+        <div class="panel">
+          <h3>My Story</h3>
+          <p>I'm <b>Renz Angelo M. Tabios</b>, also known as <b>Koro Artz</b>. I'm a fourth-year Information Technology student and a creative who loves <b>video editing</b>, <b>2D animation</b>, <b>digital and traditional art</b>, and <b>songwriting</b>.</p>
+          <p>I make videos for <b>TikTok</b> and <b>YouTube</b>, mixing smooth cuts, fun motion, and storytelling. I also take art and animation commissions from students and other clients, and I enjoy bringing ideas and imagination to life frame by frame.</p>
+          <p>Alongside my creative work, I study Web Systems Technology and completed an online Virtual Assistant course, so I can combine creativity with technical and organizational skills.</p>
+        </div>
+        <div class="panel">
+          <h3>Quick Facts</h3>
+          <ul class="facts">
+            <li><strong>Studying</strong> BS Information Technology, Web Systems Technology</li>
+            <li><strong>School</strong> Nueva Ecija University of Science and Technology</li>
+            <li><strong>Focus</strong> Video editing, 2D animation, art, songwriting</li>
+            <li><strong>Goal</strong> Freelancing, commissions, and virtual assistant work</li>
+          </ul>
+        </div>
+        <div class="panel" style="grid-column: 1 / -1;">
+          <h3>Career Goals and Strengths</h3>
+          <p>I want to promote my work on social media and other platforms, grow a community of supporters who enjoy it, and turn those opportunities into freelance projects, commissions, and virtual assistant work.</p>
+          <div class="chips" style="margin-top:14px;">
+            <span class="chip">Creative</span>
+            <span class="chip">Imaginative</span>
+            <span class="chip">Good storyteller</span>
+            <span class="chip">Always learning</span>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="card">
-        <div class="thumb tall">
-  <video src="project3.mp4" poster="project3-thumb.jpg" controls playsinline preload="none"></video>
-</div>
-        <div class="card-body">
-          <span class="tag">Song Writing</span>
-          <h3>Song Writen Sample</h3>
-          <p>From feelings and passion to a music that is full of emotions and stories behind it.</p>
-          <a class="watch" href="#" target="_blank">Watch video →</a>
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="reveal">
+      <h2>Skills & <span>Expertise</span></h2>
+      <p class="sub">What I can do, grouped by area. The bars are my own honest self-assessment.</p>
+      <div class="skill-grid">
+
+        <div class="panel wide">
+          <h3>Digital Media & Creative</h3>
+          <div class="skills-bars">
+            <div>
+              <div class="skill-top"><span>Video Editing</span><span>90%</span></div>
+              <div class="bar" role="img" aria-label="Video editing, 90 percent"><div class="fill" data-w="90"></div></div>
+            </div>
+            <div>
+              <div class="skill-top"><span>2D Animation</span><span>80%</span></div>
+              <div class="bar" role="img" aria-label="2D animation, 80 percent"><div class="fill" data-w="80"></div></div>
+            </div>
+            <div>
+              <div class="skill-top"><span>Motion & Effects</span><span>75%</span></div>
+              <div class="bar" role="img" aria-label="Motion and effects, 75 percent"><div class="fill" data-w="75"></div></div>
+            </div>
+            <div>
+              <div class="skill-top"><span>Storytelling</span><span>85%</span></div>
+              <div class="bar" role="img" aria-label="Storytelling, 85 percent"><div class="fill" data-w="85"></div></div>
+            </div>
+            <div>
+              <div class="skill-top"><span>Songwriting</span><span>80%</span></div>
+              <div class="bar" role="img" aria-label="Songwriting, 80 percent"><div class="fill" data-w="80"></div></div>
+            </div>
+          </div>
+          <div class="chips" style="margin-top:20px;">
+            <span class="chip">Color Grading</span>
+            <span class="chip">Sound Design</span>
+            <span class="chip">Captions & Subtitles</span>
+            <span class="chip">Thumbnails</span>
+            <span class="chip">Digital Art</span>
+            <span class="chip">Traditional Art</span>
+            <span class="chip">Short-form Content</span>
+            <span class="chip">Long-form Content</span>
+            <span class="chip">Lyrics & Original Songs</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Technical & Web Development</h3>
+          <div class="chips">
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">Responsive Web Design</span>
+            <span class="chip">Web Systems</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Software & Applications</h3>
+          <div class="chips">
+            <span class="chip">CapCut</span>
+            <span class="chip">FlipaClip</span>
+          </div>
+        </div>
+
+        <div class="panel wide">
+          <h3>Professional & Interpersonal</h3>
+          <div class="chips">
+            <span class="chip">Virtual Assistance</span>
+            <span class="chip">Client Communication</span>
+            <span class="chip">Creativity</span>
+            <span class="chip">Time Management</span>
+            <span class="chip">Self-learning</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section id="education" class="reveal">
+      <h2>Educational <span>Background</span></h2>
+      <p class="sub">My formal education and training.</p>
+      <div class="timeline">
+        <article class="t-item">
+          <div class="t-head"><h3>Bachelor of Science in Information Technology</h3><span class="period">4th Year · Graduating</span></div>
+          <p class="org">Nueva Ecija University of Science and Technology</p>
+          <p>Major in Web Systems Technology.</p>
+        </article>
+        <article class="t-item">
+          <div class="t-head"><h3>Virtual Assistant Course (Online)</h3><span class="period">Completed</span></div>
+          <p class="org">Online training · Certificate earned</p>
+          <p>Training for remote administrative and client-support work.</p>
+        </article>
+        <article class="t-item">
+          <div class="t-head"><h3>Senior High School</h3><span class="period">Graduated</span></div>
+          <p class="org">Bongabon Senior High School</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section id="experience" class="reveal">
+      <h2>Professional <span>Experience</span></h2>
+      <p class="sub">Freelance, creative, and academic work.</p>
+      <div class="timeline">
+        <article class="t-item">
+          <div class="t-head"><h3>Freelance Digital Artist & Animator</h3><span class="period">Ongoing</span></div>
+          <p class="org">Independent · Art and animation commissions</p>
+          <ul>
+            <li>Create commissioned artworks and animations for students and other clients.</li>
+            <li>Discuss ideas with clients and deliver finished work.</li>
+          </ul>
+        </article>
+        <article class="t-item">
+          <div class="t-head"><h3>Content Creator (Koro Artz)</h3><span class="period">Ongoing</span></div>
+          <p class="org">TikTok and YouTube</p>
+          <ul>
+            <li>Edit, animate, and publish short videos that mix storytelling, motion, and effects.</li>
+            <li>Promote my work online to build a community of supporters.</li>
+          </ul>
+        </article>
+        <article class="t-item">
+          <div class="t-head"><h3>Capstone Project: S&J Marketing Appliances</h3><span class="period">Academic Project</span></div>
+          <p class="org">Nueva Ecija University of Science and Technology</p>
+          <ul>
+            <li>Worked on an integrated system for the S&J Marketing Appliances shop as part of the BSIT capstone.</li>
+            <li>Applied coding and web systems skills from my major in a real-world project.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="reveal">
+      <h2>My <span>Projects</span></h2>
+      <p class="sub">Swipe or use the arrows to browse the samples in each project.</p>
+
+      <div class="projects">
+
+        <!-- PROJECT 1: VIDEO EDITING -->
+        <article class="project">
+          <div class="carousel" aria-roledescription="carousel" aria-label="Video editing samples">
+            <div class="track" tabindex="0">
+              <div class="slide"><video src="project1.mp4" poster="project1-thumb.jpg" controls playsinline preload="metadata" aria-label="Video editing sample 1"></video></div>
+              <div class="slide"><video src="project1-b.mp4" controls playsinline preload="metadata" aria-label="Video editing sample 2"></video></div>
+              <div class="slide"><video src="project1-c.mp4" controls playsinline preload="metadata" aria-label="Video editing sample 3"></video></div>
+            </div>
+            <button class="car-nav prev" type="button" aria-label="Previous sample"><svg class="ico" aria-hidden="true"><use href="#i-left"/></svg></button>
+            <button class="car-nav next" type="button" aria-label="Next sample"><svg class="ico" aria-hidden="true"><use href="#i-right"/></svg></button>
+            <div class="car-foot"><div class="dots"></div><span class="counter" aria-live="polite"></span></div>
+          </div>
+          <div>
+            <span class="tag">Video Editing</span>
+            <h3>Visual Effects Video Edits</h3>
+            <p class="desc">Short clips where I add visual effects inspired by superhero movies to everyday footage.</p>
+            <dl class="details">
+              <div><dt>Objective</dt><dd>Create eye-catching edits for content creation, commissions, and freelance work.</dd></div>
+              <div><dt>Tools</dt><dd>CapCut</dd></div>
+              <div><dt>My role</dt><dd>Editor: cutting footage, adding visual effects, and exporting the final video.</dd></div>
+              <div><dt>Outcome</dt><dd>Ready-to-post short videos for TikTok and YouTube.</dd></div>
+            </dl>
+            <div class="btns">
+              <a class="btn primary" href="https://www.tiktok.com/@korosaiken" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-video"/></svg>Watch more on TikTok</a>
+              <a class="btn ghost" href="#contact">Hire me <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 2: 2D ANIMATION -->
+        <article class="project">
+          <div class="carousel" aria-roledescription="carousel" aria-label="2D animation samples">
+            <div class="track" tabindex="0">
+              <div class="slide"><video src="Project2.mp4" poster="project2-thumb.jpg" controls playsinline preload="metadata" aria-label="2D animation sample 1"></video></div>
+              <div class="slide"><video src="project2-b.mp4" controls playsinline preload="metadata" aria-label="2D animation sample 2"></video></div>
+              <div class="slide"><video src="project2-c.mp4" controls playsinline preload="metadata" aria-label="2D animation sample 3"></video></div>
+            </div>
+            <button class="car-nav prev" type="button" aria-label="Previous sample"><svg class="ico" aria-hidden="true"><use href="#i-left"/></svg></button>
+            <button class="car-nav next" type="button" aria-label="Next sample"><svg class="ico" aria-hidden="true"><use href="#i-right"/></svg></button>
+            <div class="car-foot"><div class="dots"></div><span class="counter" aria-live="polite"></span></div>
+          </div>
+          <div>
+            <span class="tag">2D Animation</span>
+            <h3>Frame-by-Frame Animations</h3>
+            <p class="desc">Original 2D animations drawn frame by frame, then polished with effects and sound.</p>
+            <dl class="details">
+              <div><dt>Objective</dt><dd>Tell stories and show ideas through animation for content creation, commissions, and freelance work.</dd></div>
+              <div><dt>Tools</dt><dd>FlipaClip for animating, CapCut for editing</dd></div>
+              <div><dt>My role</dt><dd>Animator and editor: drawing, animating, and finishing every piece myself.</dd></div>
+              <div><dt>Outcome</dt><dd>Finished animations shared on YouTube and TikTok.</dd></div>
+            </dl>
+            <div class="btns">
+              <a class="btn primary" href="https://www.youtube.com/@koroanimation22" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-video"/></svg>Watch more on YouTube</a>
+              <a class="btn ghost" href="#contact">Hire me <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 3: SONGWRITING -->
+        <article class="project">
+          <div class="carousel" aria-roledescription="carousel" aria-label="Songwriting samples">
+            <div class="track" tabindex="0">
+              <div class="slide"><video src="project3.mp4" poster="project3-thumb.jpg" controls playsinline preload="metadata" aria-label="Songwriting sample 1"></video></div>
+              <div class="slide"><video src="project3-b.mp4" controls playsinline preload="metadata" aria-label="Songwriting sample 2"></video></div>
+              <div class="slide"><video src="project3-c.mp4" controls playsinline preload="metadata" aria-label="Songwriting sample 3"></video></div>
+            </div>
+            <button class="car-nav prev" type="button" aria-label="Previous sample"><svg class="ico" aria-hidden="true"><use href="#i-left"/></svg></button>
+            <button class="car-nav next" type="button" aria-label="Next sample"><svg class="ico" aria-hidden="true"><use href="#i-right"/></svg></button>
+            <div class="car-foot"><div class="dots"></div><span class="counter" aria-live="polite"></span></div>
+          </div>
+          <div>
+            <span class="tag">Songwriting</span>
+            <h3>Original Songs</h3>
+            <p class="desc">From feelings and passion to music full of emotions and the stories behind it.</p>
+            <dl class="details">
+              <div><dt>Objective</dt><dd>Turn real emotions and stories into songs I can share with listeners.</dd></div>
+              <div><dt>Tools</dt><dd>Original lyrics and music</dd></div>
+              <div><dt>My role</dt><dd>Songwriter: writing the lyrics and shaping the song.</dd></div>
+              <div><dt>Outcome</dt><dd>Original songs presented as short videos.</dd></div>
+            </dl>
+            <div class="btns">
+              <a class="btn primary" href="https://www.youtube.com/@koroanimation22" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-music"/></svg>Listen on YouTube</a>
+              <a class="btn ghost" href="#contact">Work with me <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 4: DIGITAL & TRADITIONAL ARTS -->
+        <article class="project">
+          <div class="carousel" aria-roledescription="carousel" aria-label="Digital and traditional art samples">
+            <div class="track" tabindex="0">
+              <div class="slide"><img src="art1.jpg" alt="Artwork sample 1 by Renz Angelo Tabios"></div>
+              <div class="slide"><img src="art2.jpg" alt="Artwork sample 2 by Renz Angelo Tabios"></div>
+              <div class="slide"><img src="art3.jpg" alt="Artwork sample 3 by Renz Angelo Tabios"></div>
+            </div>
+            <button class="car-nav prev" type="button" aria-label="Previous artwork"><svg class="ico" aria-hidden="true"><use href="#i-left"/></svg></button>
+            <button class="car-nav next" type="button" aria-label="Next artwork"><svg class="ico" aria-hidden="true"><use href="#i-right"/></svg></button>
+            <div class="car-foot"><div class="dots"></div><span class="counter" aria-live="polite"></span></div>
+          </div>
+          <div>
+            <span class="tag">Digital & Traditional Arts</span>
+            <h3>Digital and Traditional Artworks</h3>
+            <p class="desc">Artworks I create digitally and by hand, including commissioned pieces.</p>
+            <dl class="details">
+              <div><dt>Objective</dt><dd>Create original and commissioned art that clients and supporters enjoy.</dd></div>
+              <div><dt>Tools</dt><dd>Digital art and traditional drawing materials</dd></div>
+              <div><dt>My role</dt><dd>Artist: planning, drawing, and finishing each artwork.</dd></div>
+              <div><dt>Outcome</dt><dd>Commissioned artworks for students and other clients.</dd></div>
+            </dl>
+            <div class="btns">
+              <a class="btn primary" href="#contact">Request a commission <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="btn ghost" href="PASTE_FACEBOOK_LINK_HERE" target="_blank" rel="noopener">See more on Facebook</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ ACHIEVEMENTS ============ -->
+    <section id="achievements" class="reveal">
+      <h2>Achievements & <span>Certifications</span></h2>
+      <p class="sub">Milestones and certificates I've earned so far.</p>
+      <div class="cards">
+        <article class="info-card">
+          <svg class="ico" style="color:var(--cyan);width:1.8em;height:1.8em" aria-hidden="true"><use href="#i-award"/></svg>
+          <h3>Virtual Assistant Course Certificate</h3>
+          <p>Completed an online Virtual Assistant course and earned a certificate.</p>
+        </article>
+        <article class="info-card">
+          <svg class="ico" style="color:var(--cyan);width:1.8em;height:1.8em" aria-hidden="true"><use href="#i-cap"/></svg>
+          <h3>Senior High School Graduate</h3>
+          <p>Graduated from Bongabon Senior High School.</p>
+        </article>
+        <article class="info-card">
+          <svg class="ico" style="color:var(--cyan);width:1.8em;height:1.8em" aria-hidden="true"><use href="#i-code"/></svg>
+          <h3>Capstone Project</h3>
+          <p>Part of the capstone team building an integrated system for S&J Marketing Appliances.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ RESUME ============ -->
+    <section id="resume" class="reveal">
+      <h2>My <span>Resume</span></h2>
+      <p class="sub">A full summary of my background, skills, and experience.</p>
+      <div class="resume-box">
+        <div>
+          <h3>Renz Angelo M. Tabios: Resume (PDF)</h3>
+          <p>Download my updated resume to see my education, experience, and contact details in one page.</p>
+        </div>
+        <div class="btns">
+          <a href="resume.pdf" class="btn primary" download><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>Download Resume</a>
+          <a href="resume.pdf" class="btn ghost" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg>View Online</a>
         </div>
       </div>
+    </section>
 
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="reveal">
+      <h2>Get in <span>Touch</span></h2>
+      <p class="sub">Interested in a commission, a video edit, or a collaboration? Send me a message or find me online.</p>
+      <div class="contact-grid">
 
-    
-  </section>
+        <div class="links">
+          <a class="link-card" href="mailto:renzangelotabios22@gmail.com">
+            <span class="badge" aria-hidden="true"><svg class="ico"><use href="#i-mail"/></svg></span>
+            <div><strong>Email</strong><small>renzangelotabios22@gmail.com</small></div>
+          </a>
+          <a class="link-card" href="https://www.youtube.com/@koroanimation22" target="_blank" rel="noopener">
+            <span class="badge" aria-hidden="true"><svg class="ico"><use href="#i-video"/></svg></span>
+            <div><strong>YouTube</strong><small>Koro Artz</small></div>
+          </a>
+          <a class="link-card" href="https://www.tiktok.com/@korosaiken" target="_blank" rel="noopener">
+            <span class="badge" aria-hidden="true"><svg class="ico"><use href="#i-music"/></svg></span>
+            <div><strong>TikTok</strong><small>@korosaiken</small></div>
+          </a>
+          <a class="link-card" href="PASTE_FACEBOOK_LINK_HERE" target="_blank" rel="noopener">
+            <span class="badge" aria-hidden="true">f</span>
+            <div><strong>Facebook</strong><small>Koro Artz</small></div>
+          </a>
+          <a class="link-card" href="PASTE_LINKEDIN_LINK_HERE" target="_blank" rel="noopener">
+            <span class="badge" aria-hidden="true">in</span>
+            <div><strong>LinkedIn</strong><small>Renz Angelo Tabios</small></div>
+          </a>
+        </div>
 
-  <!-- SKILLS -->
-  <section id="skills" class="reveal">
-    <h2>My <span>Skills</span></h2>
-    <p class="sub">This is my skill levels</p>
-    <div class="skills">
-      <div>
-        <div class="skill-top"><span>Video Editing</span><span>90%</span></div>
-        <div class="bar"><div class="fill" data-w="90"></div></div>
-      </div>
-      <div>
-        <div class="skill-top"><span>2D Animation</span><span>80%</span></div>
-        <div class="bar"><div class="fill" data-w="80"></div></div>
-      </div>
-      <div>
-        <div class="skill-top"><span>Motion & Effects</span><span>75%</span></div>
-        <div class="bar"><div class="fill" data-w="75"></div></div>
-      </div>
-      <div>
-        <div class="skill-top"><span>Storytelling</span><span>85%</span></div>
-        <div class="bar"><div class="fill" data-w="85"></div></div>
-      </div>
-      <div>
-  <div class="skill-top"><span>Songwriting</span><span>80%</span></div>
-  <div class="bar"><div class="fill" data-w="80"></div></div>
-      </div>
-    </div>
-    <div class="chips">
-      <span class="chip">Color Grading</span>
-      <span class="chip">Sound Design</span>
-      <span class="chip">Captions & Subtitles</span>
-      <span class="chip">Thumbnails</span>
-      <span class="chip">Short-form Content</span>
-      <span class="chip">Long-form Content</span>
-      <span class="chip">Songwriting</span>
-<span class="chip">Lyrics</span>
-<span class="chip">Original Songs</span>
-    </div>
-  </section>
+        <form class="form" id="contactForm">
+          <div class="field">
+            <label for="cName">Your name</label>
+            <input id="cName" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="cEmail">Your email</label>
+            <input id="cEmail" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="cMsg">Message</label>
+            <textarea id="cMsg" name="message" required placeholder="Tell me about your project or commission idea"></textarea>
+          </div>
+          <button class="btn primary" type="submit" style="justify-content:center;"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>Send Message</button>
+          <p class="form-msg" id="formMsg" role="status"></p>
+        </form>
 
-  <!-- LINKS -->
-  <section id="links" class="reveal">
-    <h2>Find <span>Me</span></h2>
-    <p class="sub">Come say hi and watch my content</p>
-    <div class="links">
-      <a class="link-card" href="https://www.tiktok.com/@korosaiken?lang=en-GB&is_from_webapp=1&sender_device=mobile&sender_web_id=7675378900432012801" target="_blank" rel="noopener">
-        <span class="ico">🎵</span>
-        <div><strong>TikTok</strong><small>@korosaiken</small></div>
-      </a>
-      <a class="link-card" href="https://www.youtube.com/@koroanimation22" target="_blank" rel="noopener">
-        <span class="ico">▶️</span>
-        <div><strong>YouTube</strong><small>Koro Artz</small></div>
-      </a>
-      <a class="link-card" href="renzangelotabios22@gmail.com">
-        <span class="ico">✉️</span>
-        <div><strong>Email</strong><small>renzangelotabios22@gmail.com</small></div>
-      </a>
-    </div>
-  </section>
+      </div>
+    </section>
 
+  </main>
+
+  <!-- ============ FOOTER ============ -->
   <footer>
-    © <span id="year"></span> Renz Angelo M. Tabios. Made with <span>♥</span> and my unstoppable Imagination.
+    <div class="foot-inner">
+      <a href="#home" class="logo">Koro Artz</a>
+      <nav class="foot-links" aria-label="Footer navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p>© <span id="year"></span> Renz Angelo M. Tabios. Made with <span class="accent">♥</span> and my unstoppable imagination.</p>
+      <small>All videos, animations, artworks, and songs are my original work. Fonts: Poppins and Inter via Google Fonts (SIL Open Font License).</small>
+    </div>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    /* ---------- Mobile menu ---------- */
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    function setMenu(open) {
+      navLinks.classList.toggle("open", open);
+      menuBtn.setAttribute("aria-expanded", String(open));
+      menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    }
+    menuBtn.addEventListener("click", () => setMenu(!navLinks.classList.contains("open")));
+    navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
+    document.addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
+
+    /* ---------- Scroll reveal + skill bars ---------- */
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
           e.target.classList.add("show");
-          e.target.querySelectorAll(".fill").forEach((f) => {
-            f.style.width = f.dataset.w + "%";
-          });
+          e.target.querySelectorAll(".fill").forEach((f) => { f.style.width = f.dataset.w + "%"; });
         }
       });
-    }, { threshold: 0.15 });
-
+    }, { threshold: 0.1 });
     document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+    /* ---------- Highlight the current section in the menu ---------- */
+    const navAnchors = [...navLinks.querySelectorAll("a")];
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          navAnchors.forEach(a => a.setAttribute("aria-current", String(a.getAttribute("href") === "#" + e.target.id)));
+        }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    document.querySelectorAll("main section[id]").forEach(s => spy.observe(s));
+
+    /* ---------- Project carousels ---------- */
+    function setupCarousel(c) {
+      const track = c.querySelector(".track");
+      const dotsBox = c.querySelector(".dots");
+      const counter = c.querySelector(".counter");
+      const prev = c.querySelector(".prev");
+      const next = c.querySelector(".next");
+      let current = -1;
+
+      const real = () => [...track.querySelectorAll(".slide:not(.empty)")];
+
+      function go(i) {
+        const w = track.clientWidth;
+        track.scrollTo({ left: i * w, behavior: "smooth" });
+      }
+
+      function mark() {
+        const n = real().length;
+        if (!n) { counter.textContent = ""; return; }
+        const i = Math.min(n - 1, Math.max(0, Math.round(track.scrollLeft / (track.clientWidth || 1))));
+        if (i !== current) {
+          real().forEach((s, idx) => { if (idx !== i) s.querySelectorAll("video").forEach(v => v.pause()); });
+          current = i;
+        }
+        [...dotsBox.children].forEach((d, idx) => d.setAttribute("aria-current", String(idx === i)));
+        counter.textContent = (i + 1) + " / " + n;
+      }
+
+      c._refresh = function () {
+        const slides = real();
+        const empty = track.querySelector(".slide.empty");
+        if (!slides.length && !empty) {
+          const e = document.createElement("div");
+          e.className = "slide empty";
+          e.textContent = "Sample media coming soon.";
+          track.appendChild(e);
+        } else if (slides.length && empty) {
+          empty.remove();
+        }
+        dotsBox.innerHTML = "";
+        slides.forEach((_, i) => {
+          const d = document.createElement("button");
+          d.type = "button";
+          d.className = "dot";
+          d.setAttribute("aria-label", "Go to sample " + (i + 1));
+          d.addEventListener("click", () => go(i));
+          dotsBox.appendChild(d);
+        });
+        c.classList.toggle("single", slides.length <= 1);
+        current = -1;
+        mark();
+      };
+
+      prev.addEventListener("click", () => go(Math.max(0, current - 1)));
+      next.addEventListener("click", () => go(Math.min(real().length - 1, current + 1)));
+      track.addEventListener("scroll", () => { window.requestAnimationFrame(mark); }, { passive: true });
+      track.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") { e.preventDefault(); go(Math.max(0, current - 1)); }
+        if (e.key === "ArrowRight") { e.preventDefault(); go(Math.min(real().length - 1, current + 1)); }
+      });
+      c._refresh();
+    }
+
+    /* Slides whose file is missing are removed so visitors never see a broken image or video */
+    function dropSlide(slide) {
+      if (!slide.isConnected) return;
+      const c = slide.closest(".carousel");
+      slide.remove();
+      c._refresh();
+    }
+    function isBroken(m) { return m.tagName === "IMG" ? (m.complete && m.naturalWidth === 0) : !!m.error; }
+
+    document.querySelectorAll(".carousel").forEach(setupCarousel);
+    document.querySelectorAll(".carousel .slide").forEach((s) => {
+      const m = s.querySelector("img, video");
+      m.addEventListener("error", () => dropSlide(s));
+    });
+    window.addEventListener("load", () => {
+      document.querySelectorAll(".carousel .slide").forEach((s) => {
+        const m = s.querySelector("img, video");
+        if (m && isBroken(m)) dropSlide(s);
+      });
+    });
+    window.addEventListener("resize", () => document.querySelectorAll(".carousel").forEach(c => c._refresh()));
+
+    /* ---------- Contact form (opens the visitor's email app) ---------- */
+    document.getElementById("contactForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const f = e.target;
+      const body = "Name: " + f.name.value + "\nEmail: " + f.email.value + "\n\n" + f.message.value;
+      const url = "mailto:renzangelotabios22@gmail.com?subject=" +
+        encodeURIComponent("Portfolio message from " + f.name.value) + "&body=" + encodeURIComponent(body);
+      document.getElementById("formMsg").textContent = "Opening your email app. Just press send to deliver your message.";
+      window.location.href = url;
+    });
   </script>
 </body>
 </html>
