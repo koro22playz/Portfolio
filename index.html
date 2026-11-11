@@ -139,6 +139,31 @@
       .hero .photo { order: 2; }
       .avatar { width: 260px; height: 260px; }
     }
+    .banner {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  background: #0b1620 url(banner-thumb.jpg) center / cover no-repeat;
+  border-bottom: 1px solid var(--line);
+}
+.banner video { width: 100%; height: 100%; object-fit: cover; }
+.banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(8, 12, 17, 0.1), var(--bg));
+}
+.hero { min-height: auto; padding-top: 0; }
+.hero .photo { margin-top: -75px; position: relative; z-index: 2; }
+@media (min-width: 800px) {
+  .banner { height: 300px; }
+  .hero { padding-top: 48px; }
+  .hero .photo { margin-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .banner video { display: none; }
+}
 
     /* ============ ABOUT ============ */
     .about-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
@@ -250,6 +275,19 @@
     .info-card:hover { border-color: var(--cyan); transform: translateY(-3px); }
     .info-card h3 { font-size: 1.05rem; margin: 10px 0 6px; }
     .info-card p { color: var(--muted); font-size: .93rem; }
+    .cert-img {
+  display: block;
+  margin-bottom: 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+}
+.cert-img img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
 
     /* ============ RESUME ============ */
     .resume-box {
@@ -357,6 +395,9 @@
   </header>
 
   <main id="main">
+    <div class="banner">
+  <video src="banner (1).mp4" poster="banner-thumb.jpeg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+    </div>
 
     <!-- ============ HOME ============ -->
     <section id="home" class="hero">
@@ -366,12 +407,12 @@
       <div>
         <p class="hello">Hey there! I'm</p>
         <h1>Renz Angelo <span>M. Tabios</span></h1>
-        <p class="role">Video Editor · 2D Animator · Digital Artist · Songwriter</p>
-        <p class="intro">I'm a BSIT student and content creator, known online as <b>Koro Artz</b>. I turn ideas and imagination into scroll-stopping videos, animations, artworks, and songs for TikTok and YouTube.</p>
+        <p class="role">Video Editor · 2D Animator · Digital Artist · Graphic Designer · Songwriter</p>
+        <p class="intro">I'm a BSIT student and content creator, known online as <b>Koro Artz</b>. I turn ideas and imagination into scroll-stopping videos, animations, artworks, graphic designs, and songs for TikTok and YouTube.</p>
         <p class="interests"><strong>Professional interests:</strong> freelance video editing and animation, art commissions, and virtual assistant work.</p>
         <div class="btns">
           <a href="#projects" class="btn primary"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg>View My Projects</a>
-          <a href="resume.pdf" class="btn ghost" download><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>Download My Resume</a>
+          <a href="resume1.pdf" class="btn ghost" download><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>Download My Resume</a>
           <a href="#contact" class="btn ghost"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>Contact Me</a>
         </div>
       </div>
@@ -382,32 +423,34 @@
       <h2>About <span>Me</span></h2>
       <p class="sub">A little about who I am and where I'm headed.</p>
       <div class="about-grid">
-        <div class="panel">
-          <h3>My Story</h3>
-          <p>I'm <b>Renz Angelo M. Tabios</b>, also known as <b>Koro Artz</b>. I'm a fourth-year Information Technology student and a creative who loves <b>video editing</b>, <b>2D animation</b>, <b>digital and traditional art</b>, and <b>songwriting</b>.</p>
-          <p>I make videos for <b>TikTok</b> and <b>YouTube</b>, mixing smooth cuts, fun motion, and storytelling. I also take art and animation commissions from students and other clients, and I enjoy bringing ideas and imagination to life frame by frame.</p>
-          <p>Alongside my creative work, I study Web Systems Technology and completed an online Virtual Assistant course, so I can combine creativity with technical and organizational skills.</p>
-        </div>
-        <div class="panel">
-          <h3>Quick Facts</h3>
-          <ul class="facts">
-            <li><strong>Studying</strong> BS Information Technology, Web Systems Technology</li>
-            <li><strong>School</strong> Nueva Ecija University of Science and Technology</li>
-            <li><strong>Focus</strong> Video editing, 2D animation, art, songwriting</li>
-            <li><strong>Goal</strong> Freelancing, commissions, and virtual assistant work</li>
-          </ul>
-        </div>
-        <div class="panel" style="grid-column: 1 / -1;">
-          <h3>Career Goals and Strengths</h3>
-          <p>I want to promote my work on social media and other platforms, grow a community of supporters who enjoy it, and turn those opportunities into freelance projects, commissions, and virtual assistant work.</p>
-          <div class="chips" style="margin-top:14px;">
-            <span class="chip">Creative</span>
-            <span class="chip">Imaginative</span>
-            <span class="chip">Good storyteller</span>
-            <span class="chip">Always learning</span>
-          </div>
-        </div>
-      </div>
+  <div class="panel">
+    <h3>My Story</h3>
+    <p>I'm <b>Renz Angelo M. Tabios</b>, also known as <b>Koro Artz</b>: a fourth-year BSIT student and a creative who turns ideas and imagination into <b>videos, animations, artworks, designs, and songs</b>.</p>
+    <p>I edit videos in <b>CapCut</b>, animate in <b>Ibis Paint</b> and <b>FlipaClip</b>, draw digitally and traditionally, design branding and graphics in <b>Canva</b>, and write songs. I share my work on <b>TikTok</b> and <b>YouTube</b> and take commissions from students and other clients.</p>
+    <p>My Web Systems Technology studies and online Virtual Assistant course add a technical, organized side to my creativity, so I can handle both the creative and the organizational parts of a project.</p>
+  </div>
+  <div class="panel">
+    <h3>Quick Facts</h3>
+    <ul class="facts">
+      <li><strong>Studying</strong> BS Information Technology, Web Systems Technology</li>
+      <li><strong>School</strong> Nueva Ecija University of Science and Technology</li>
+      <li><strong>Creates</strong> Videos, animations, art, graphic designs, songs</li>
+      <li><strong>Tools</strong> CapCut, Ibis Paint, FlipaClip, Canva, BandLab</li>
+      <li><strong>Goal</strong> Freelancing, commissions, and virtual assistant work</li>
+    </ul>
+  </div>
+  <div class="panel" style="grid-column: 1 / -1;">
+    <h3>Career Goals and Strengths</h3>
+    <p>I want to promote my work on social media and other platforms, grow a community of supporters who enjoy it, and turn those opportunities into freelance projects, commissions, and virtual assistant work.</p>
+    <div class="chips" style="margin-top:14px;">
+      <span class="chip">Creative</span>
+      <span class="chip">Imaginative</span>
+      <span class="chip">Detail-oriented</span>
+      <span class="chip">Good storyteller</span>
+      <span class="chip">Always learning</span>
+    </div>
+  </div>
+</div>
     </section>
 
     <!-- ============ SKILLS ============ -->
@@ -420,12 +463,12 @@
           <h3>Digital Media & Creative</h3>
           <div class="skills-bars">
             <div>
-              <div class="skill-top"><span>Video Editing</span><span>90%</span></div>
-              <div class="bar" role="img" aria-label="Video editing, 90 percent"><div class="fill" data-w="90"></div></div>
+              <div class="skill-top"><span>Video Editing</span><span>80%</span></div>
+              <div class="bar" role="img" aria-label="Video editing, 80 percent"><div class="fill" data-w="80"></div></div>
             </div>
             <div>
-              <div class="skill-top"><span>2D Animation</span><span>80%</span></div>
-              <div class="bar" role="img" aria-label="2D animation, 80 percent"><div class="fill" data-w="80"></div></div>
+              <div class="skill-top"><span>2D Animation</span><span>70%</span></div>
+              <div class="bar" role="img" aria-label="2D animation, 70 percent"><div class="fill" data-w="70"></div></div>
             </div>
             <div>
               <div class="skill-top"><span>Motion & Effects</span><span>75%</span></div>
@@ -436,9 +479,13 @@
               <div class="bar" role="img" aria-label="Storytelling, 85 percent"><div class="fill" data-w="85"></div></div>
             </div>
             <div>
-              <div class="skill-top"><span>Songwriting</span><span>80%</span></div>
-              <div class="bar" role="img" aria-label="Songwriting, 80 percent"><div class="fill" data-w="80"></div></div>
+              <div class="skill-top"><span>Songwriting</span><span>60%</span></div>
+              <div class="bar" role="img" aria-label="Songwriting, 60 percent"><div class="fill" data-w="60"></div></div>
             </div>
+          </div>
+          <div>
+  <div class="skill-top"><span>Branding & Graphic Design</span><span>70%</span></div>
+  <div class="bar" role="img" aria-label="Branding and graphic design, 70 percent"><div class="fill" data-w="70"></div></div>
           </div>
           <div class="chips" style="margin-top:20px;">
             <span class="chip">Color Grading</span>
@@ -450,6 +497,9 @@
             <span class="chip">Short-form Content</span>
             <span class="chip">Long-form Content</span>
             <span class="chip">Lyrics & Original Songs</span>
+            <span class="chip">Logo Design</span>
+<span class="chip">Branding</span>
+< class="chip">Graphic Design</>
           </div>
         </div>
 
@@ -469,6 +519,9 @@
           <div class="chips">
             <span class="chip">CapCut</span>
             <span class="chip">FlipaClip</span>
+            <span class="chip">Canva</span>
+<span class="chip">Ibis Paint</span>
+<span class="chip">BandLab</span>
           </div>
         </div>
 
@@ -581,8 +634,8 @@
           <div class="carousel" aria-roledescription="carousel" aria-label="2D animation samples">
             <div class="track" tabindex="0">
               <div class="slide"><video src="Project2.mp4" poster="project2-thumb.jpg" controls playsinline preload="metadata" aria-label="2D animation sample 1"></video></div>
-              <div class="slide"><video src="project2-b.mp4" controls playsinline preload="metadata" aria-label="2D animation sample 2"></video></div>
-              <div class="slide"><video src="project2-c.mp4" controls playsinline preload="metadata" aria-label="2D animation sample 3"></video></div>
+              <div class="slide"><video src="anim2.mp4" poster="anim2thumb.jpg" controls playsinline preload="metadata" aria-label="2D animation sample 2"></video></div>
+              <div class="slide"><video src="anim3.mp4" poster="anim3thumb.jpg" controls playsinline preload="metadata" aria-label="2D animation sample 3"></video></div>
             </div>
             <button class="car-nav prev" type="button" aria-label="Previous sample"><svg class="ico" aria-hidden="true"><use href="#i-left"/></svg></button>
             <button class="car-nav next" type="button" aria-label="Next sample"><svg class="ico" aria-hidden="true"><use href="#i-right"/></svg></button>
@@ -594,7 +647,7 @@
             <p class="desc">Original 2D animations drawn frame by frame, then polished with effects and sound.</p>
             <dl class="details">
               <div><dt>Objective</dt><dd>Tell stories and show ideas through animation for content creation, commissions, and freelance work.</dd></div>
-              <div><dt>Tools</dt><dd>FlipaClip for animating, CapCut for editing</dd></div>
+              <div><dt>Tools</dt><dd>Ibis Paint and FlipaClip for animating, CapCut for editing</dd></div>
               <div><dt>My role</dt><dd>Animator and editor: drawing, animating, and finishing every piece myself.</dd></div>
               <div><dt>Outcome</dt><dd>Finished animations shared on YouTube and TikTok.</dd></div>
             </dl>
@@ -610,8 +663,8 @@
           <div class="carousel" aria-roledescription="carousel" aria-label="Songwriting samples">
             <div class="track" tabindex="0">
               <div class="slide"><video src="project3.mp4" poster="project3-thumb.jpg" controls playsinline preload="metadata" aria-label="Songwriting sample 1"></video></div>
-              <div class="slide"><video src="project3-b.mp4" controls playsinline preload="metadata" aria-label="Songwriting sample 2"></video></div>
-              <div class="slide"><video src="project3-c.mp4" controls playsinline preload="metadata" aria-label="Songwriting sample 3"></video></div>
+              <div class="slide"><video src="song2.mp4" poster="song2thumb.jpg" controls playsinline preload="metadata" aria-label="Songwriting sample 2"></video></div>
+              <div class="slide"><video src="song3.mp4" poster="song3thumb.jpg"  controls playsinline preload="metadata" aria-label="Songwriting sample 3"></video></div>
             </div>
             <button class="car-nav prev" type="button" aria-label="Previous sample"><svg class="ico" aria-hidden="true"><use href="#i-left"/></svg></button>
             <button class="car-nav next" type="button" aria-label="Next sample"><svg class="ico" aria-hidden="true"><use href="#i-right"/></svg></button>
@@ -623,9 +676,9 @@
             <p class="desc">From feelings and passion to music full of emotions and the stories behind it.</p>
             <dl class="details">
               <div><dt>Objective</dt><dd>Turn real emotions and stories into songs I can share with listeners.</dd></div>
-              <div><dt>Tools</dt><dd>Original lyrics and music</dd></div>
+              <div><dt>Tools</dt><dd>Notepad, paper, and BandLab</dd></div>
               <div><dt>My role</dt><dd>Songwriter: writing the lyrics and shaping the song.</dd></div>
-              <div><dt>Outcome</dt><dd>Original songs presented as short videos.</dd></div>
+              <div><dt>Outcome</dt><dd>Original songs presented as entertainment that relates on peoples mood, emotion, and story.</dd></div>
             </dl>
             <div class="btns">
               <a class="btn primary" href="https://www.youtube.com/@koroanimation22" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-music"/></svg>Listen on YouTube</a>
@@ -638,7 +691,7 @@
         <article class="project">
           <div class="carousel" aria-roledescription="carousel" aria-label="Digital and traditional art samples">
             <div class="track" tabindex="0">
-              <div class="slide"><img src="art1.jpg" alt="Artwork sample 1 by Renz Angelo Tabios"></div>
+              <div class="slide"><img src="art1.jpeg" alt="Artwork sample 1 by Renz Angelo Tabios"></div>
               <div class="slide"><img src="art2.jpg" alt="Artwork sample 2 by Renz Angelo Tabios"></div>
               <div class="slide"><img src="art3.jpg" alt="Artwork sample 3 by Renz Angelo Tabios"></div>
             </div>
@@ -652,7 +705,7 @@
             <p class="desc">Artworks I create digitally and by hand, including commissioned pieces.</p>
             <dl class="details">
               <div><dt>Objective</dt><dd>Create original and commissioned art that clients and supporters enjoy.</dd></div>
-              <div><dt>Tools</dt><dd>Digital art and traditional drawing materials</dd></div>
+              <div><dt>Tools</dt><dd>Ibis Paint and traditional drawing materials</dd></div>
               <div><dt>My role</dt><dd>Artist: planning, drawing, and finishing each artwork.</dd></div>
               <div><dt>Outcome</dt><dd>Commissioned artworks for students and other clients.</dd></div>
             </dl>
@@ -662,6 +715,33 @@
             </div>
           </div>
         </article>
+        <!-- PROJECT 5: BRANDING & GRAPHIC DESIGN -->
+<article class="project">
+  <div class="carousel" aria-roledescription="carousel" aria-label="Branding and graphic design samples">
+    <div class="track" tabindex="0">
+  <div class="slide"><video src="brand1.mp4" poster="brand1-thumb.jpeg" controls playsinline preload="metadata" aria-label="Branding video sample"></video></div>
+  <div class="slide"><img src="brand2.jpg" alt="Branding design sample 2 by Renz Angelo Tabios"></div>
+  <div class="slide"><img src="brand3.png" alt="Graphic design sample 3 by Renz Angelo Tabios"></div>
+</div>
+    <button class="car-nav prev" type="button" aria-label="Previous design"><svg class="ico" aria-hidden="true"><use href="#i-left"/></svg></button>
+    <button class="car-nav next" type="button" aria-label="Next design"><svg class="ico" aria-hidden="true"><use href="#i-right"/></svg></button>
+    <div class="car-foot"><div class="dots"></div><span class="counter" aria-live="polite"></span></div>
+  </div>
+  <div>
+    <span class="tag">Branding & Graphic Design</span>
+    <h3>Branding and Graphic Designs</h3>
+    <p class="desc">Logos, visual identities, and graphics made to give a creator or brand a clear, consistent look.</p>
+    <dl class="details">
+      <div><dt>Objective</dt><dd>Create eye-catching branding and graphics for content creation, commissions, and freelance work.</dd></div>
+      <div><dt>Tools</dt><dd>Canva</dd></div>
+      <div><dt>My role</dt><dd>Designer: planning the concept, designing, and finishing each piece.</dd></div>
+      <div><dt>Outcome</dt><dd>Ready-to-use designs for social media and client projects.</dd></div>
+    </dl>
+    <div class="btns">
+      <a class="btn primary" href="#contact">Request a design <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</article>
 
       </div>
     </section>
@@ -672,6 +752,9 @@
       <p class="sub">Milestones and certificates I've earned so far.</p>
       <div class="cards">
         <article class="info-card">
+          <a class="cert-img" href="certificate-va.jpg" target="_blank" rel="noopener" aria-label="View Virtual Assistant certificate full size">
+  <img src="certificate-va.jpg" alt="Virtual Assistant course certificate of completion awarded to Renz Angelo M. Tabios">
+          </a>
           <svg class="ico" style="color:var(--cyan);width:1.8em;height:1.8em" aria-hidden="true"><use href="#i-award"/></svg>
           <h3>Virtual Assistant Course Certificate</h3>
           <p>Completed an online Virtual Assistant course and earned a certificate.</p>
@@ -699,7 +782,7 @@
           <p>Download my updated resume to see my education, experience, and contact details in one page.</p>
         </div>
         <div class="btns">
-          <a href="resume.pdf" class="btn primary" download><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>Download Resume</a>
+          <a href="resume1.pdf" class="btn primary" download><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>Download Resume</a>
           <a href="resume.pdf" class="btn ghost" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg>View Online</a>
         </div>
       </div>
@@ -712,7 +795,7 @@
       <div class="contact-grid">
 
         <div class="links">
-          <a class="link-card" href="mailto:renzangelotabios22@gmail.com">
+          <a class="link-card" href="maicontact-gridlotabios22@gmail.com">
             <span class="badge" aria-hidden="true"><svg class="ico"><use href="#i-mail"/></svg></span>
             <div><strong>Email</strong><small>renzangelotabios22@gmail.com</small></div>
           </a>
@@ -724,11 +807,11 @@
             <span class="badge" aria-hidden="true"><svg class="ico"><use href="#i-music"/></svg></span>
             <div><strong>TikTok</strong><small>@korosaiken</small></div>
           </a>
-          <a class="link-card" href="PASTE_FACEBOOK_LINK_HERE" target="_blank" rel="noopener">
+          <a class="link-card" href="https://www.facebook.com/koromation" target="_blank" rel="noopener">
             <span class="badge" aria-hidden="true">f</span>
             <div><strong>Facebook</strong><small>Koro Artz</small></div>
           </a>
-          <a class="link-card" href="PASTE_LINKEDIN_LINK_HERE" target="_blank" rel="noopener">
+          <a class="link-card" href="https://www.linkedin.com/in/renz-angelo-tabios-01b5b430a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener">
             <span class="badge" aria-hidden="true">in</span>
             <div><strong>LinkedIn</strong><small>Renz Angelo Tabios</small></div>
           </a>
